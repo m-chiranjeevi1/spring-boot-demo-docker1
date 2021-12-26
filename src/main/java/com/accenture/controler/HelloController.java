@@ -16,6 +16,6 @@ public class HelloController
 	 @GetMapping("/test")
 	 public String showDetails()
 	 {
-		 return "test";
+		 return "test 11";
 	 }
 }
