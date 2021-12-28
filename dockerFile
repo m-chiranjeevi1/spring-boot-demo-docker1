@@ -9,7 +9,7 @@ RUN mvn package
 
 FROM openjdk:8-jre-alpine3.7
 WORKDIR /root/
-COPY --from=builder /usr/src/myapp/target/SpringBootExample-0.0.1-SNAPSHOT.jar .
+COPY --from=builder /usr/src/myapp/target/SpringBootExample-0.0.1-SNAPSHOT.jar springboot.jar .
 
 EXPOSE 9091
 ENTRYPOINT ["java", "-jar", "./SpringBootExample-0.0.1-SNAPSHOT.jar"]
