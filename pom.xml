@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.javainterviewpoint</groupId>
-	<artifactId>SpringBootExample</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>spring</artifactId>
+	<version>boot</version>
 	<packaging>jar</packaging>
 
 	<name>SpringBootExample</name>
