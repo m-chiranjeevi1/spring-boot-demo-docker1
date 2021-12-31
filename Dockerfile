@@ -14,7 +14,7 @@ FROM openjdk:8-jre-alpine3.7
 WORKDIR /root/
 
 
-ARG JAR_FILE= /usr/src/myapp/target/spring-boot.jar
+ARG JAR_FILE= /usr/src/myapp//spring-boot.jar
 ADD ${JAR_FILE} app.jar
 
 EXPOSE 9091
