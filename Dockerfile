@@ -1,21 +1,7 @@
-FROM ubuntu
-MAINTAINER logiclabs
+FROM openjdk:8-jdk-alpine
 
-RUN apt-get update
-RUN apt-get install -y default-jdk
+EXPOSE 8080
 
-COPY . /usr/src/myapp/
-WORKDIR /usr/src/myapp/
-RUN apk --no-cache add maven && mvn --version
-RUN mvn package
+ADD target/spring-boot.jar spring-boot.jar
 
-
-FROM openjdk:8-jre-alpine3.7
-WORKDIR /root/
-
-
-ARG JAR_FILE= /usr/src/myapp//spring-boot.jar
-ADD ${JAR_FILE} app.jar
-
-EXPOSE 9091
-ENTRYPOINT ["java", "-jar", "./app.jar"]
+ENTRYPOINT ["java","-jar","spring-boot.jar"]
