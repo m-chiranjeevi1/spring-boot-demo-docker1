@@ -1,6 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
-EXPOSE 5050:8080
+EXPOSE 9091 9091
 
 
 ADD target/spring-boot.jar spring-boot.jar
