@@ -1,0 +1,35 @@
+
+
+pipeline{
+    agent any
+    stages{
+        stage('start')
+        {
+            steps
+            {
+                sh 'echo "welcome to jenkins "'
+            }
+        }
+         stage('download')
+        {
+            steps
+            {
+                git 'https://github.com/m-chiranjeevi1/spring-boot-demo-docker1.git'
+            }
+        }
+        stage('build')
+        {
+            steps
+            {
+               sh 'mvn package'
+            }
+        }
+        stage('deploy')
+        {
+            steps
+            {
+                sh 'scp /home/ec2-user/.jenkins/workspace/pipeline2/target/spring-boot.jar ubuntu@172.31.9.214:/var/lib/spring-boot.jar'
+            }
+        }
+    }
+}
