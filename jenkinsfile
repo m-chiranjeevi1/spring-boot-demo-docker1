@@ -25,6 +25,21 @@ pipeline{
                sh 'mvn package'
             }
         }
+        stage('nexus artfactory uploader')
+        {
+            steps
+            {
+              nexusArtifactUploader artifacts: [[artifactId: 'spring', classifier: '', file: '/home/ubuntu/.jenkins/workspace/job1/target/spring-boot.jar', type: 'jar']], 
+              credentialsId: 'c00bd334-ffe3-4444-8b1e-9b47658e885d',
+              groupId: 'com.javainterviewpoint', 
+              nexusUrl: '172.31.6.85:8081',
+              nexusVersion: 'nexus3', 
+              protocol: 'http', 
+              repository: 'nexus-repo', 
+              version: 'boot'
+            }
+        }
+        
    /*
         stage('deploy')
         {
