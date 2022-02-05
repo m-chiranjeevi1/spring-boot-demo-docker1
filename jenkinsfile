@@ -8,6 +8,7 @@ pipeline{
             steps
             {
                 sh 'echo "welcome to jenkins "'
+                sh 'echo "how r u"'
             }
         }
          stage('download')
@@ -24,6 +25,7 @@ pipeline{
                sh 'mvn package'
             }
         }
+   /*
         stage('deploy')
         {
             steps
@@ -31,5 +33,6 @@ pipeline{
                 sh 'scp /home/ec2-user/.jenkins/workspace/pipeline2/target/spring-boot.jar ubuntu@172.31.9.214:/var/lib/spring-boot.jar'
             }
         }
+   */    
     }
 }
