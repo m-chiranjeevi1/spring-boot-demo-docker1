@@ -5,7 +5,7 @@
 
 	<groupId>com.javainterviewpoint</groupId>
 	<artifactId>spring</artifactId>
-	<version>boot</version>
+	<version>boot.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>SpringBootExample</name>
