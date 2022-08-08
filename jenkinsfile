@@ -54,7 +54,6 @@ pipeline{
 	    }
 	}
      
-    /*
        post 
         {
 	    always 
@@ -62,7 +61,8 @@ pipeline{
 		sh 'docker logout'
 	     }
 	}
-    
+     }
+    /*
         stage('nexus artfactory uploader')
         {
             steps
@@ -93,5 +93,5 @@ pipeline{
             }
         }
    */    
-  }  
+   
 }
