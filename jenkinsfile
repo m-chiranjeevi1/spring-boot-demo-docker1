@@ -53,7 +53,8 @@ pipeline{
 		sh 'docker push 8466033508/spring'
 	    }
 	}
-     }
+     
+    /*
        post 
         {
 	    always 
@@ -61,7 +62,7 @@ pipeline{
 		sh 'docker logout'
 	     }
 	}
-     
+    
         stage('nexus artfactory uploader')
         {
             steps
@@ -92,5 +93,5 @@ pipeline{
             }
         }
    */    
-    
+  }  
 }
