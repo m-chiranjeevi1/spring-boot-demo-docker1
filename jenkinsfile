@@ -25,7 +25,7 @@ pipeline{
                sh 'mvn package'
             }
         }
-     
+     /*
         stage('nexus artfactory uploader')
         {
             steps
@@ -47,7 +47,8 @@ pipeline{
               version: 'boot'
             }
         }
-   /*   stage('deploy')
+     
+       stage('deploy')
         {
             steps
             {
