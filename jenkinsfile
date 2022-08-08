@@ -2,6 +2,10 @@
 
 pipeline{
     agent any
+    environment 
+    {
+		DOCKERHUB_CREDENTIALS=credentials('docker_token')
+	}
     stages{
         stage('start')
         {
@@ -25,6 +29,38 @@ pipeline{
                sh 'mvn package'
             }
         }
+        stage('docker_Build')
+        {
+
+			steps
+            {
+				sh 'docker build -t 8466033508/spring .'
+			}
+		}
+        stage('docker_Login') 
+        {
+
+			steps 
+            {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+		stage('docker_Push') 
+        {
+
+			steps 
+            {
+				sh 'docker push 8466033508/spring'
+			}
+		}
+        post 
+        {
+		always 
+          {
+			sh 'docker logout'
+	      }
+	    }
      /*
         stage('nexus artfactory uploader')
         {
