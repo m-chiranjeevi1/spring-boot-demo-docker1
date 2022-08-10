@@ -56,7 +56,6 @@ pipeline{
         stage('deploy on k8s') 
 	{
            steps {
-                sshagent(['k8s']) {
                       sh 'scp -o StrictHostKeyChecking=no /home/ubuntu/springboot.yaml ec2-user@172.31.33.58:/home/ec2-user'
 		      script{
 		        try{
@@ -66,7 +65,6 @@ pipeline{
 			  sh 'ssh ec2-user@172.31.33.58 kubectl create -f .'
 			  }
 		      }
-                }
              }
           }
      /*
